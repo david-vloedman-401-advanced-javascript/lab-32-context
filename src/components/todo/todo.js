@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import useFetch from "../../hooks/fetch.js";
 import { When } from "../if";
 import TodoForm from "./form.js";
 import TodoList from "./list.js";
 import TodoItem from "./item.js";
+import {SettingsContext} from '../settings';
+import Auth from '../auth/auth'
 
 import "./todo.scss";
 
@@ -18,7 +20,7 @@ const ToDo = () => {
   
   const { request, response, error, isLoading } = useFetch();
 
-  
+  const context = useContext(SettingsContext);
 
   const _addItem = item => {
     const addRequest = {
@@ -28,6 +30,7 @@ const ToDo = () => {
         body: JSON.stringify(item)
       }
     };
+    console.log(addRequest.options.body);
     request(addRequest);
   };
 
@@ -55,7 +58,7 @@ const ToDo = () => {
   };
 
   const _toggleDetails = id => {
-    setShowDetails(!showDetails); //whatever
+    setShowDetails(!showDetails); 
     let item = todoList.filter(item => item._id === id)[0];
     setShowItem(item);
   };
@@ -90,28 +93,33 @@ const ToDo = () => {
 
   return (
     <>
-      <header>
-        <h2>
-          There are {todoList.filter(item => !item.complete).length} Items To
-          Complete
-        </h2>
-      </header>
+      <Auth capability="read">
+        <header>
+          <h2>
+            There are {todoList.filter(item => !item.complete).length} Items To
+            Complete
+          </h2>
+        </header>
+      </Auth>
+      <Auth>
+        <section className="todo">
+          <div>
+            <Auth capability="create">
+              <TodoForm handleSubmit={_addItem} />
+            </Auth>
+          </div>
 
-      <section className="todo">
-        <div>
-          <TodoForm handleSubmit={_addItem} />
-        </div>
-
-        <div>
-          <TodoList
-            list={todoList}
-            handleComplete={_toggleComplete}
-            handleDelete={_deleteItem}
-            handleDetails={_toggleDetails}
-          />
-        </div>
-      </section>
-
+          <div>
+            <TodoList
+              list={todoList}
+              context={context}
+              handleComplete={_toggleComplete}
+              handleDelete={_deleteItem}
+              handleDetails={_toggleDetails}
+            />
+          </div>
+        </section>
+      </Auth>
       <When condition={showDetails}>
         <TodoItem handleDetails={_toggleDetails} item={showItem} />
       </When>

@@ -15,8 +15,7 @@ const useFetch = () => {
         return;
       }
       setIsLoading(true); 
-      try {
-        //set header
+      try {        
         requestObject.options.headers = { "Content-Type": "application/json" };
         
         const res = await fetch(requestObject.url, requestObject.options);
