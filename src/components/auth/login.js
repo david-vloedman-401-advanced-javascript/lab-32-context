@@ -38,25 +38,26 @@ class Login extends React.Component {
   render() {
     return (
       <>
-        {/* use the If component and conditionally render the login prpmpts */}
-        <If condition={this.context.loggedIn}>
-          <button onClick={this.context.logout}>Log Out </button>
-        </If>
-        <If condition={!this.context.loggedIn}>
-          <form onSubmit={this.handleSubmit}>
-            <input
-              placeholder="username"
-              name="username"
-              onChange={this.handleChange}
-            />
-            <input
-              placeholder="password"
-              name="password"
-              onChange={this.handleChange}
-            />
-            <input type="submit" value="login" />
-          </form>
-        </If>
+        <div id="login">
+          <If condition={this.context.loggedIn}>
+            <button onClick={this.context.logout}>Log Out </button>
+          </If>
+          <If condition={!this.context.loggedIn}>
+            <form onSubmit={this.handleSubmit}>
+              <input
+                placeholder="username"
+                name="username"
+                onChange={this.handleChange}
+              />
+              <input
+                placeholder="password"
+                name="password"
+                onChange={this.handleChange}
+              />
+              <input type="submit" value="login" />
+            </form>
+          </If>
+        </div>
       </>
     );
   }

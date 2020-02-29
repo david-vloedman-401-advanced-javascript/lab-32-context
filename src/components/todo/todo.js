@@ -34,6 +34,10 @@ const ToDo = () => {
     request(addRequest);
   };
 
+  useEffect(()=>{
+    document.title = `${todoList.filter(item => !item.complete).length} items to Complete`;
+  });
+
   const _deleteItem = id => {
     const deleteRequest = {
       url: `${todoAPI}/${id}`,
