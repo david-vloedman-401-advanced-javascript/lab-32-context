@@ -21,7 +21,7 @@ class Auth extends React.Component {
       user = this.context.token
         ? jwt.verify(this.context.token, 'supersecret')
         : {};
-      console.log(user);
+      
 
       okToRender =
         this.context.loggedIn &&

@@ -14,7 +14,7 @@ class LoginProvider extends React.Component {
     const cookieToken = cookie.load('auth');
     const token = qs.get('token') || cookieToken || null;
 
-    console.log(token);
+    
 
     this.state = {
       loggedIn: !!token,
@@ -22,7 +22,7 @@ class LoginProvider extends React.Component {
       login: this.login,
       logout: this.logout
     };
-    console.log(this.state);
+    
   }
   /**
    * Handles credentials when logging in

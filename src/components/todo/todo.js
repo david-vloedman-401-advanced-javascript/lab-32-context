@@ -35,7 +35,7 @@ const ToDo = () => {
         body: JSON.stringify(item)
       }
     };
-    console.log(addRequest.options.body);
+    
     request(addRequest);
   };
 

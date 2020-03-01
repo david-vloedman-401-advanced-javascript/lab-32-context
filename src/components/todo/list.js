@@ -25,9 +25,7 @@ const TodoList = props => {
         let page = list.slice(i, i + pageSize);
         pages.push(page);
       }
-      console.log(pages);
-      console.log('use effect');
-
+      
     
   })
 
