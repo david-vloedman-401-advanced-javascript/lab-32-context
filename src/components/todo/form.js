@@ -1,6 +1,10 @@
 import React from "react";
 import useForm from "../../hooks/form.js";
 
+/**
+ * A component for the input form for item creation
+ * @param {*} props 
+ */
 const TodoForm = props => {
   const { handleChange, handleSubmit } = useForm(props.handleSubmit);
 

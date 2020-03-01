@@ -1,6 +1,9 @@
 import React from "react";
 import Modal from "../modal";
-
+/**
+ * Component for a single items details
+ * @param {*} props 
+ */
 const Item = props => {
   const item = props.item || {};
 

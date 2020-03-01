@@ -1,7 +1,10 @@
 import React, {useState} from 'react';
 
 export const SettingsContext = React.createContext();
-
+/**
+ * Context for application settings
+ * @param {*} props 
+ */
 function SettingsProvider(props){
   const [hideCompleted, setHideCompleted] = useState(false);
   const [pageSize, setPageSize] = useState(5);

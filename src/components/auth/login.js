@@ -8,7 +8,10 @@ const API = 'https://api-js401.herokuapp.com';
 const If = props => {
   return !!props.condition ? props.children : null;
 };
-
+/**
+ * A component that handles authentication 
+ * @class Login
+ */
 class Login extends React.Component {
   static contextType = LoginContext;
   constructor(props) {
@@ -19,7 +22,10 @@ class Login extends React.Component {
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-
+  /**
+   * Handles the submit of the login form
+   * @params e
+   */
   handleSubmit = e => {
     //use the uid, pw, and superagent an API call to server for authentication
     //and capabilities
@@ -43,6 +49,7 @@ class Login extends React.Component {
             <button onClick={this.context.logout}>Log Out </button>
           </If>
           <If condition={!this.context.loggedIn}>
+            <h1 id="loginH">Sign-in Todoodles</h1>
             <form onSubmit={this.handleSubmit}>
               <input
                 placeholder="username"

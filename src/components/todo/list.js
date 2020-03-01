@@ -3,6 +3,12 @@ import {SettingsContext} from '../settings';
 import {When, If, Then, Else} from '../if/';
 import Auth from '../auth/auth';
 
+
+
+/**
+ * A component for the list of todo items
+ * @param {*} props 
+ */
 const TodoList = props => {
   const list = props.list || [];
   const context = useContext(SettingsContext);

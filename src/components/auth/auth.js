@@ -6,6 +6,10 @@ const If = props => {
   return !!props.condition ? props.children : null;
 };
 
+/**
+ * Handles access control for specific components
+ * @class Auth
+ */
 class Auth extends React.Component {
   static contextType = LoginContext;
 
@@ -25,15 +29,6 @@ class Auth extends React.Component {
           ? user.capabilities.includes(this.props.capability)
           : true);
     } catch (e) {}
-
-    //<Auth><div /> </Auth>
-    ///are you logged in
-    //was there no capability specified?
-
-    //<Auth capability="foo"> <div /> </Auth>
-    ///are you logged in?
-    ///is there a capability specified and that we care about
-    ///do you have it -
 
     return (
       <If condition={okToRender}>
