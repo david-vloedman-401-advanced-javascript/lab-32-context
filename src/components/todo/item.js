@@ -10,7 +10,7 @@ const Item = props => {
   return (
     <Modal title="To Do Item" close={props.handleDetails}>
       <div className="todo-details">
-        <header>
+        <header id="modalHead">
           <span>Assigned To: {item.assignee}</span>
           <span>Due: {item.due}</span>
         </header>
