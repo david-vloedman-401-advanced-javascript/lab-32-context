@@ -11,7 +11,9 @@ import "./todo.scss";
 
 
 const todoAPI = "https://api-js401.herokuapp.com/api/v1/todo";
-
+/**
+ * ToDo component
+ */
 const ToDo = () => {
   const [todoList, setToDoList] = useState([]);
   const [showDetails, setShowDetails] = useState(false);
@@ -21,7 +23,10 @@ const ToDo = () => {
   const { request, response, error, isLoading } = useFetch();
 
   const context = useContext(SettingsContext);
-
+  /**
+   * Send a request to add an item to the DB
+   * @param {*} item 
+   */
   const _addItem = item => {
     const addRequest = {
       url: todoAPI,
@@ -30,10 +35,17 @@ const ToDo = () => {
         body: JSON.stringify(item)
       }
     };
-    console.log(addRequest.options.body);
+    
     request(addRequest);
   };
 
+  useEffect(()=>{
+    document.title = `${todoList.filter(item => !item.complete).length} items to Complete`;
+  });
+  /**
+   * Send a request to delete an item from the DB
+   * @param {*} id 
+   */
   const _deleteItem = id => {
     const deleteRequest = {
       url: `${todoAPI}/${id}`,
@@ -43,7 +55,10 @@ const ToDo = () => {
     };
     request(deleteRequest);
   };
-
+  /**
+   * Toggle a todo item from complete to incomplete and vice versa
+   * @param {*} id 
+   */
   const _toggleComplete = id => {
     let item = todoList.filter(i => i._id === id)[0] || {};
     item.complete = !item.complete;
@@ -56,14 +71,19 @@ const ToDo = () => {
     };
     request(updateRequest);
   };
-
+  /**
+   * toggle the showing of details of a specific item
+   * @param {*} id 
+   */
   const _toggleDetails = id => {
     setShowDetails(!showDetails); 
     let item = todoList.filter(item => item._id === id)[0];
     setShowItem(item);
   };
 
-  
+  /**
+   * send a request to get all items from the DB
+   */
   const _getAll = () => {
     const req = {
       url: todoAPI,
@@ -94,7 +114,7 @@ const ToDo = () => {
   return (
     <>
       <Auth capability="read">
-        <header>
+        <header className='toDoHead'>
           <h2>
             There are {todoList.filter(item => !item.complete).length} Items To
             Complete

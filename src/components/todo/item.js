@@ -1,13 +1,16 @@
 import React from "react";
 import Modal from "../modal";
-
+/**
+ * Component for a single items details
+ * @param {*} props 
+ */
 const Item = props => {
   const item = props.item || {};
 
   return (
     <Modal title="To Do Item" close={props.handleDetails}>
       <div className="todo-details">
-        <header>
+        <header id="modalHead">
           <span>Assigned To: {item.assignee}</span>
           <span>Due: {item.due}</span>
         </header>

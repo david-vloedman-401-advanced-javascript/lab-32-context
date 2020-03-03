@@ -8,7 +8,9 @@ const useFetch = () => {
 
   
   useEffect(() => {
-    
+    /**
+     *  A custom react hook to handle the API calls
+     */
     const fetchData = async () => {
       
       if (!requestObject) {
