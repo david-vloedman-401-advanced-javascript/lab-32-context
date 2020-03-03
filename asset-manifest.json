@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/lab-32-context/static/css/main.aeda9547.chunk.css",
-    "main.js": "/lab-32-context/static/js/main.244efd7a.chunk.js",
-    "main.js.map": "/lab-32-context/static/js/main.244efd7a.chunk.js.map",
+    "main.css": "/lab-32-context/static/css/main.279dd60d.chunk.css",
+    "main.js": "/lab-32-context/static/js/main.ac201d9e.chunk.js",
+    "main.js.map": "/lab-32-context/static/js/main.ac201d9e.chunk.js.map",
     "runtime~main.js": "/lab-32-context/static/js/runtime~main.fcc7fb8a.js",
     "runtime~main.js.map": "/lab-32-context/static/js/runtime~main.fcc7fb8a.js.map",
     "static/js/2.fa022edf.chunk.js": "/lab-32-context/static/js/2.fa022edf.chunk.js",
     "static/js/2.fa022edf.chunk.js.map": "/lab-32-context/static/js/2.fa022edf.chunk.js.map",
     "index.html": "/lab-32-context/index.html",
-    "precache-manifest.e5bc347c62648ab2a91426d0e89cf264.js": "/lab-32-context/precache-manifest.e5bc347c62648ab2a91426d0e89cf264.js",
+    "precache-manifest.fcc03d8414901d0775457cb63a509c6c.js": "/lab-32-context/precache-manifest.fcc03d8414901d0775457cb63a509c6c.js",
     "service-worker.js": "/lab-32-context/service-worker.js",
-    "static/css/main.aeda9547.chunk.css.map": "/lab-32-context/static/css/main.aeda9547.chunk.css.map"
+    "static/css/main.279dd60d.chunk.css.map": "/lab-32-context/static/css/main.279dd60d.chunk.css.map"
   }
 }
