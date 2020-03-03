@@ -114,7 +114,7 @@ const ToDo = () => {
   return (
     <>
       <Auth capability="read">
-        <header>
+        <header className='toDoHead'>
           <h2>
             There are {todoList.filter(item => !item.complete).length} Items To
             Complete
